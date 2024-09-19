@@ -1,0 +1,128 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etherpad-settings
+data:
+  settings.json: |
+    {
+      "title": "Etherpad",
+      "favicon": null,
+      "skinName": "colibris",
+      "skinVariants": "super-light-toolbar super-light-editor light-background",
+      "ip": "0.0.0.0",
+      "port": 9001,
+      "showSettingsInAdminPage": true,
+      "authenticationMethod": "basic",
+      "dbType": "mysql",
+      "dbSettings": {
+        "host": "etherpad-mysql",
+        "port": 3306,
+        "database": "etherpad_db",
+        "user": "etherpad_user",
+        "password": "etherpad_password",
+        "charset": "utf8mb4"
+      },
+      "defaultPadText": "Welcome to Etherpad!\n\n",
+      "padOptions": {
+        "noColors": false,
+        "showControls": true,
+        "showChat": true,
+        "showLineNumbers": true,
+        "useMonospaceFont": false,
+        "userName": null,
+        "userColor": null,
+        "rtl": false,
+        "alwaysShowChat": false,
+        "chatAndUsers": false,
+        "lang": null
+      },
+      "suppressErrorsInPadText": false,
+      "requireSession": false,
+      "editOnly": false,
+      "minify": false,
+      "maxAge": 0,
+      "abiword": null,
+      "soffice": null,
+      "allowUnknownFileEnds": true,
+      "requireAuthentication": true,
+      "requireAuthorization": false,
+      "trustProxy": false,
+      "cookie": {
+        "keyRotationInterval": 86400000,
+        "sameSite": "Strict",
+        "sessionLifetime": 300000,
+        "sessionRefreshInterval": 0
+      },
+      "disableIPlogging": true,
+      "automaticReconnectionTimeout": 0,
+      "scrollWhenFocusLineIsOutOfViewport": {
+        "percentage": {
+          "editionAboveViewport": 0,
+          "editionBelowViewport": 0
+        },
+        "duration": 0,
+        "scrollWhenCaretIsInTheLastLineOfViewport": false,
+        "percentageToScrollWhenUserPressesArrowUp": 0
+      },
+      "ep_httpauth_author": {
+        "prefix": "author/"
+      },
+      "users": {
+        "admin": {
+          "password": "adminpass",
+          "is_admin": true
+        },
+        "user1": {
+          "password": "userpass1",
+          "is_admin": false,
+          "color": "red",
+          "author_name": "User One",
+          "saveUserSettings": true
+        },
+        "user2": {
+          "password": "userpass2",
+          "is_admin": false,
+          "author_name": "User Two"
+        }
+      },
+      "socketTransportProtocols": ["websocket", "polling"],
+      "socketIo": {
+        "maxHttpBufferSize": 50000
+      },
+      "loadTest": false,
+      "dumpOnUncleanExit": false,
+      "importExportRateLimiting": {
+        "windowMs": 90000,
+        "max": 10
+      },
+      "importMaxFileSize": 52428800,
+      "commitRateLimiting": {
+        "duration": 1,
+        "points": 10
+      },
+      "exposeVersion": false,
+      "loglevel": "DEBUG",
+      "customLocaleStrings": {},
+      "enableAdminUITests": true,
+      "lowerCasePadIds": false,
+      "sso": {
+        "issuer": "http://localhost:9001",
+        "clients": [
+          {
+            "client_id": "admin_client",
+            "client_secret": "admin",
+            "grant_types": ["authorization_code"],
+            "response_types": ["code"],
+            "redirect_uris": ["http://localhost:9001/admin/"]
+          },
+          {
+            "client_id": "user_client",
+            "client_secret": "user",
+            "grant_types": ["authorization_code"],
+            "response_types": ["code"],
+            "redirect_uris": ["http://localhost:9001/"]
+          }
+        ]
+      },
+      "ep_markdown_default": true
+    }
