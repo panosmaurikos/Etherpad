@@ -22,4 +22,12 @@ Also, you can see the etherpad logs with the command ```docker logs <container I
 - Access to kubectl to manage Kubernetes resources.
 - Storage paths available on the nodes to map Persistent Volumes (PVs).
 
+To install etherpad on your kubernetes cluster run:
+~~~
+
+~~~
+
+~~~
+kubectl apply -f 
+~~~
 
