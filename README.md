@@ -24,10 +24,12 @@ Also, you can see the etherpad logs with the command ```docker logs <container I
 
 To install etherpad on your kubernetes cluster run:
 ~~~
-
+git clone https://github.com/panosmaurikos/Etherpad.git
 ~~~
-
 ~~~
-kubectl apply -f 
+cd Etherpad_kubernetes
+~~~
+~~~
+kubectl apply -f etherpad-config.yaml -f etherpad-deployment.yaml -f  mysql-deployment.yaml -f pv-pvc.yaml
 ~~~
 
